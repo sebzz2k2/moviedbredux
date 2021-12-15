@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 
-function App() {
+const App = () => {
+  const [searchQuery, setSearchQuery] = useState([]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    console.log("Hello");
+  };
   return (
     <div className="App">
-      <Navbar />
+      <Navbar
+        handleSearch={handleSearch}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
     </div>
   );
-}
+};
 
 export default App;

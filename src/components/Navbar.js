@@ -2,14 +2,29 @@ import React from "react";
 import styled from "styled-components";
 import SignIn from "./SignIn";
 
-function Navbar() {
+const Navbar = (props) => {
   return (
     <NavMenu>
       <h1>MovieDB</h1>
-      <SignIn />
+      <NavRight>
+        <Search>
+          <form onSubmit={props.handleSearch}>
+            <input
+              type="text"
+              placeholder="Search...."
+              value={props.searchQuery}
+              onChange={(e) => {
+                props.setSearchQuery(e.target.value);
+                console.log(e.target.value);
+              }}
+            />
+          </form>
+        </Search>
+        <SignIn />
+      </NavRight>
     </NavMenu>
   );
-}
+};
 
 export default Navbar;
 
@@ -32,6 +47,33 @@ const NavMenu = styled.nav`
     padding: 0 2.75rem;
     h1 {
       font-size: 1.75rem;
+    }
+  }
+`;
+
+const NavRight = styled.div`
+  display: flex;
+`;
+const Search = styled.div`
+  padding-right: 2rem;
+  input {
+    padding: 0.5rem;
+    border: none;
+    color: #111;
+    box-shadow: 0 0 2.5rem 2.5rem #bfe6ff inset, 0 0 0 0 #bfe6ff;
+    transition: all 150ms ease-in-out;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 0.25rem;
+    text-transform: capitalize;
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0.625rem 0 #bfe6ff inset, 0 0 0.625rem 0.25rem #bfe6ff;
+      background-color: #bfe6ff;
+    }
+    &:hover {
+      box-shadow: 0 0 0.625rem 0 #bfe6ff inset, 0 0 0.625rem 0.25rem #bfe6ff;
+      background-color: #bfe6ff;
     }
   }
 `;

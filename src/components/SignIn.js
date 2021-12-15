@@ -59,14 +59,13 @@ const SignInButton = styled.button`
   transition: all 150ms ease-in-out;
   font-weight: 600;
   font-size: 0.9rem;
+  border-radius: 0.25rem;
   text-transform: uppercase;
-  border-radius: 0.25;
   padding: 0.5rem 1.5rem;
 
   &:hover {
     box-shadow: 0 0 0.625rem 0 #bfe6ff inset, 0 0 0.625rem 0.25rem #bfe6ff;
     background-color: #bfe6ff;
-    font-size: 0.95rem;
   }
   @media (min-width: 768px) {
     padding: 0.5rem 2rem;
