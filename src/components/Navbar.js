@@ -55,6 +55,7 @@ const NavRight = styled.div`
   display: flex;
 `;
 const Search = styled.div`
+  display: none;
   padding-right: 2rem;
   input {
     padding: 0.5rem;
@@ -70,10 +71,15 @@ const Search = styled.div`
       outline: none;
       box-shadow: 0 0 0.625rem 0 #bfe6ff inset, 0 0 0.625rem 0.25rem #bfe6ff;
       background-color: #bfe6ff;
+      position: absolute;
+      right: 1.25rem;
     }
     &:hover {
       box-shadow: 0 0 0.625rem 0 #bfe6ff inset, 0 0 0.625rem 0.25rem #bfe6ff;
       background-color: #bfe6ff;
     }
+  }
+  @media (min-width: 768px) {
+    display: block;
   }
 `;
