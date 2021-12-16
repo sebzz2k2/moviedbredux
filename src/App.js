@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import axios from "axios";
+import MainBody from "./components/MainBody";
+import SearchResults from "./components/SearchResults";
+import styled from "styled-components";
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState([]);
+  const [movieList, setMovieList] = useState([]);
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // console.log("Hello");
     fetchMovies(searchQuery);
   };
   const fetchMovies = (searchQuery) => {
@@ -25,21 +28,41 @@ const App = () => {
       .request(options)
       .then(function (response) {
         console.log(response.data.results);
-        setSearchQuery(response.data.results);
+        setMovieList(response.data.results);
       })
       .catch(function (error) {
         console.error(error);
       });
   };
   return (
-    <div className="App">
+    <Container className="App">
       <Navbar
         handleSearch={handleSearch}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
-    </div>
+      <h2>Search Results</h2>
+      <Card className="scrollbar">
+        {movieList.map((manga) => (
+          <SearchResults value={manga} key={manga.id} />
+        ))}
+      </Card>
+    </Container>
   );
 };
 
 export default App;
+const Container = styled.div`
+  h2 {
+    padding-top: 2rem;
+    margin: 0 3rem;
+    color: #bfe6ff;
+    font-size: 2rem;
+  }
+`;
+const Card = styled.div`
+  display: flex;
+  overflow-x: scroll;
+  align-items: center;
+  margin: 0 2rem;
+`;
