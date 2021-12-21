@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import axios from "axios";
-// import MainBody from "./components/MainBody";
 import SearchResults from "./components/SearchResults";
 import styled from "styled-components";
 import Slider from "./components/Slider/Slider";

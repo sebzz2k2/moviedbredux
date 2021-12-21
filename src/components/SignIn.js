@@ -7,7 +7,6 @@ import {
   setActiveUser,
   setUserLogOutState,
   selectUserName,
-  selectUserEmail,
 } from "../features/userSlice";
 
 import React from "react";
@@ -16,7 +15,6 @@ function SignIn() {
   const dispatch = useDispatch();
 
   const userName = useSelector(selectUserName);
-  const userEmail = useSelector(selectUserEmail);
 
   const handleSignIn = () => {
     //function body
