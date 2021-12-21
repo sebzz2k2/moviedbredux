@@ -10,3 +10,9 @@
 .scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}

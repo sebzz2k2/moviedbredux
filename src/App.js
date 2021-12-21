@@ -5,10 +5,12 @@ import axios from "axios";
 import MainBody from "./components/MainBody";
 import SearchResults from "./components/SearchResults";
 import styled from "styled-components";
+import Slider from "./components/Slider/Slider";
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState([]);
   const [movieList, setMovieList] = useState([]);
+  const [searching, setSearching] = useState(true);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -29,6 +31,7 @@ const App = () => {
       .then(function (response) {
         console.log(response.data.results);
         setMovieList(response.data.results);
+        setSearching(false);
       })
       .catch(function (error) {
         console.error(error);
@@ -41,10 +44,11 @@ const App = () => {
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
-      <h2>Search Results</h2>
+      {searching ? <Slider /> : <h2>Search Results</h2>}
+
       <Card className="scrollbar">
-        {movieList.map((manga) => (
-          <SearchResults value={manga} key={manga.id} />
+        {movieList.map((movie) => (
+          <SearchResults value={movie} key={movie.id} />
         ))}
       </Card>
     </Container>

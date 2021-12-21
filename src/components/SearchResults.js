@@ -11,13 +11,26 @@ function SearchResults({ value }) {
   );
 }
 
+//  <div class="card">
+//    <div class="cardContent">
+//      <h2 class="cardTitle">Random Title</h2>
+//      <p class="cardBody">
+//        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae ipsa ipsum
+//        veritatis.
+//      </p>
+//      <a href="#" class="button">
+//        Learn More
+//      </a>
+//    </div>
+//  </div>;
+
 export default SearchResults;
 
 const SearchComponent = styled.div`
   color: #bfe6ff;
   img {
     width: 200px;
-    margin: 3rem 1rem;
+    margin: 4rem 1rem;
     border-radius: 4px;
     box-shadow: rgba(0 0 0 /69%) 0px 26px 30px -10px,
       rgb(0 0 0 /73%) 0px 16px 10px -10px;
