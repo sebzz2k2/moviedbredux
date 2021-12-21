@@ -15,7 +15,7 @@ const Navbar = (props) => {
               value={props.searchQuery}
               onChange={(e) => {
                 props.setSearchQuery(e.target.value);
-                console.log(e.target.value);
+                // console.log(e.target.value);
               }}
             />
           </form>

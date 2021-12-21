@@ -11,6 +11,9 @@ const Slider = () => {
   function prevSlide() {
     setCurrent(current === 0 ? length - 1 : current - 1);
   }
+  setTimeout(() => {
+    nextSlide();
+  }, 2500);
   return (
     <Carousel>
       <LeftButton onClick={prevSlide}>&lt;</LeftButton>
@@ -69,7 +72,7 @@ const LeftButton = styled.button`
   border: none;
   text-align: center;
   position: absolute;
-  left: 16rem;
+  left: 4rem;
   cursor: pointer;
   z-index: 1;
   user-select: none;
@@ -78,6 +81,6 @@ const LeftButton = styled.button`
   }
 `;
 const RightButton = styled(LeftButton)`
-  right: 16rem;
+  right: 4rem;
   left: auto;
 `;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import axios from "axios";
-import MainBody from "./components/MainBody";
+// import MainBody from "./components/MainBody";
 import SearchResults from "./components/SearchResults";
 import styled from "styled-components";
 import Slider from "./components/Slider/Slider";
@@ -29,7 +29,7 @@ const App = () => {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data.results);
+        // console.log(response.data.results);
         setMovieList(response.data.results);
         setSearching(false);
       })
